@@ -1,0 +1,68 @@
+{
+  "AXAG Read Operation": {
+    "prefix": "axag-read",
+    "body": [
+      "axag-intent=\"${1:entity}.${2:read_action}\"",
+      "axag-entity=\"${1:entity}\"",
+      "axag-action-type=\"read\"",
+      "axag-description=\"${3:Read description}\"",
+      "axag-risk-level=\"none\"",
+      "axag-idempotent=\"true\""
+    ],
+    "description": "AXAG annotation for a read operation"
+  },
+  "AXAG Write Operation": {
+    "prefix": "axag-write",
+    "body": [
+      "axag-intent=\"${1:entity}.${2:write_action}\"",
+      "axag-entity=\"${1:entity}\"",
+      "axag-action-type=\"write\"",
+      "axag-description=\"${3:Write description}\"",
+      "axag-risk-level=\"${4|low,medium,high|}\"",
+      "axag-idempotent=\"${5|false,true|}\"",
+      "axag-side-effects='[\"${6:side_effect}\"]'"
+    ],
+    "description": "AXAG annotation for a write operation"
+  },
+  "AXAG Delete Operation": {
+    "prefix": "axag-delete",
+    "body": [
+      "axag-intent=\"${1:entity}.${2:delete_action}\"",
+      "axag-entity=\"${1:entity}\"",
+      "axag-action-type=\"delete\"",
+      "axag-description=\"${3:Delete description}\"",
+      "axag-risk-level=\"${4|high,critical,medium|}\"",
+      "axag-confirmation-required=\"true\"",
+      "axag-idempotent=\"${5|false,true|}\""
+    ],
+    "description": "AXAG annotation for a delete operation"
+  },
+  "AXAG Full Annotation": {
+    "prefix": "axag-full",
+    "body": [
+      "axag-intent=\"${1:entity}.${2:action}\"",
+      "axag-entity=\"${1:entity}\"",
+      "axag-action-type=\"${3|read,write,delete,navigate|}\"",
+      "axag-description=\"${4:Description}\"",
+      "axag-risk-level=\"${5|none,low,medium,high,critical|}\"",
+      "axag-confirmation-required=\"${6|false,true|}\"",
+      "axag-idempotent=\"${7|true,false|}\"",
+      "axag-scope=\"${8|user,tenant,global|}\"",
+      "axag-required-parameters='[{\"name\":\"${9:param}\",\"type\":\"${10|string,number,boolean|}\"}]'",
+      "axag-side-effects='[\"${11:effect}\"]'",
+      "axag-preconditions='[\"${12:condition}\"]'"
+    ],
+    "description": "AXAG annotation with all attributes"
+  },
+  "AXAG Navigate Operation": {
+    "prefix": "axag-nav",
+    "body": [
+      "axag-intent=\"${1:entity}.${2:navigate_action}\"",
+      "axag-entity=\"${1:entity}\"",
+      "axag-action-type=\"navigate\"",
+      "axag-description=\"${3:Navigate to a view}\"",
+      "axag-risk-level=\"none\""
+    ],
+    "description": "AXAG annotation for a navigation link"
+  }
+}

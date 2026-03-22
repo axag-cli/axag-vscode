@@ -1,0 +1,135 @@
+{
+  "name": "axag-vscode",
+  "displayName": "AXAG — Agent Annotations for Web UIs",
+  "description": "Make your web UI agent-ready. Autocomplete, hover docs, diagnostics & snippets for AXAG semantic annotations. Annotate HTML/JSX/TSX → generate MCP tools for AI agents.",
+  "version": "1.0.2",
+  "publisher": "axag",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axag-cli/axag-vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "keywords": [
+    "axag",
+    "agent-experience",
+    "semantic-contract",
+    "mcp",
+    "model-context-protocol",
+    "ai-agent",
+    "annotations",
+    "web-accessibility",
+    "agent-tools",
+    "semantic-web",
+    "react",
+    "html",
+    "jsx",
+    "tsx",
+    "ai"
+  ],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0a0a23",
+    "theme": "dark"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/badge/spec-axag.org-blue",
+      "href": "https://axag.org",
+      "description": "AXAG Specification"
+    },
+    {
+      "url": "https://img.shields.io/badge/cli-axag--cli-green",
+      "href": "https://cli.axag.org",
+      "description": "AXAG CLI"
+    }
+  ],
+  "markdown": "github",
+  "qna": "marketplace",
+  "homepage": "https://axag.org",
+  "bugs": {
+    "url": "https://github.com/axag-cli/axag-vscode/issues"
+  },
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "axag.countAnnotations",
+        "title": "AXAG: Count Annotations in File"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "axag.gettingStarted",
+        "title": "Get Started with AXAG",
+        "description": "Make your web UI machine-readable for AI agents in 3 steps.",
+        "steps": [
+          {
+            "id": "annotate",
+            "title": "Annotate an Element",
+            "description": "Open any HTML, JSX, or TSX file and type ``axag-`` inside an element to see autocomplete suggestions.\n\n[Open a File](command:workbench.action.files.openFile)",
+            "media": {
+              "markdown": "docs/walkthrough-annotate.md"
+            }
+          },
+          {
+            "id": "snippet",
+            "title": "Use a Snippet",
+            "description": "Type ``axag-read``, ``axag-write``, ``axag-delete``, or ``axag-full`` to scaffold a complete annotated element.\n\n[Insert Snippet](command:editor.action.insertSnippet)",
+            "media": {
+              "markdown": "docs/walkthrough-snippet.md"
+            }
+          },
+          {
+            "id": "generate",
+            "title": "Generate MCP Tools",
+            "description": "Use the AXAG CLI to scan your annotated files and generate a Semantic Manifest and MCP Tool Registry.\n\n```bash\nnpx axag-cli scan ./src --manifest\nnpx axag-cli generate-tools\n```\n\n[Learn More](https://axag.org/docs/getting-started)",
+            "media": {
+              "markdown": "docs/walkthrough-generate.md"
+            }
+          }
+        ]
+      }
+    ],
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "package": "vsce package",
+    "lint": "eslint src --ext .ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.24.0",
+    "puppeteer": "^24.40.0",
+    "typescript": "^5.7.0"
+  }
+}

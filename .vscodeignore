@@ -1,0 +1,13 @@
+# Files to exclude from the VSIX package
+.git/**
+.gitignore
+src/**
+tsconfig.json
+esbuild.mjs
+node_modules/**
+*.vsix
+.vscode/**
+.vscode-test/**
+out/**
+docs/generate-screenshots.mjs
+docs/demo.html

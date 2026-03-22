@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AXAG Demo — E-Commerce Dashboard</title>
+</head>
+<body>
+
+  <!-- ✅ Fully annotated element (for hover & status bar screenshots) -->
+  <button
+    axag-intent="product.search"
+    axag-entity="product"
+    axag-action-type="read"
+    axag-description="Search products by keyword, category, or price range"
+    axag-risk-level="none"
+    axag-idempotent="true"
+    axag-required-params='["query"]'
+    axag-optional-params='["category", "minPrice", "maxPrice"]'
+  >
+    🔍 Search Products
+  </button>
+
+  <!-- ✅ Another annotated element -->
+  <button
+    axag-intent="order.create"
+    axag-entity="order"
+    axag-action-type="write"
+    axag-description="Place a new order for items in cart"
+    axag-risk-level="medium"
+    axag-confirmation-required="true"
+    axag-scope="user"
+    axag-side-effects='["charge_payment", "send_confirmation_email", "update_inventory"]'
+  >
+    🛒 Place Order
+  </button>
+
+  <!-- ⚠️ Element with ERRORS (for diagnostics screenshot) -->
+  <button
+    axag-intent="account.delete"
+    axag-action-type="destroy"
+    axag-risk-level="extreme"
+  >
+    🗑️ Delete Account
+  </button>
+
+  <!-- 🔤 Type axag- HERE for autocomplete screenshot -->
+  <button
+    
+  >
+    ✏️ Edit Profile
+  </button>
+
+</body>
+</html>
