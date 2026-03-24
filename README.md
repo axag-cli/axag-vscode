@@ -15,7 +15,7 @@ AI agents (Claude, GPT, Gemini) can browse web UIs but have **no idea what butto
 
 ## The Solution
 
-AXAG (Agent Experience Annotation Grammar) lets you **declare what each UI element does** — its intent, entity, action type, risk level, and safety constraints — directly in your markup:
+AXAG (Agent Experience Accessibility Guidelines) lets you **declare what each UI element does** — its intent, entity, action type, risk level, and safety constraints — directly in your markup:
 
 ```html
 <!-- Before: opaque DOM node -->
